@@ -1,0 +1,19 @@
+----basic info----
+help: to show help
+exit: to exit
+modules: to show modules
+use <module>: to use module
+
+----modules info----
+set port: to set port
+set host: to set host
+set username: to set username
+set password: to set password
+run: to run module
+set mac: to set mac adresse
+
+----extra info----
+(R): required
+(O): optional
+(Re): recommanded
+(In): instable

@@ -1,0 +1,8 @@
+net/shutmac
+net/gateway
+net/admbrute
+net/pathdisoclure
+net/xssexploit
+net/sqlexploit
+net/uploadexploit
+net/resetrouter
