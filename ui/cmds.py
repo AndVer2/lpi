@@ -1,5 +1,7 @@
 #!/bin/python
 
+import subprocess
+
 def reading(file):
    with open(file) as f:
     lines = f.read()
@@ -11,3 +13,8 @@ def help():
 def modules():
    reading("notes/modules.txt")
 
+def back(plc):
+   if plc == "term":
+     exit()
+   else:
+     subprocess.call(["python", "term.py"], cwd="../../../ui")

@@ -26,7 +26,7 @@ def chs():
    if bool(choose)==False:
       chs()
    else:
-      if choose.strip()=="exit":
+      if choose.strip()=="exit" or choose.strip()=="back":
          exit()
       elif choose.strip()=="help":
          help()
