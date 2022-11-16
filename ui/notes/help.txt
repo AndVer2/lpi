@@ -3,6 +3,7 @@ help: to show help
 exit: to exit
 modules: to show modules
 use <module>: to use module
+back: to return back or exit (in case no module choosed)
 
 ----modules info----
 set port: to set port

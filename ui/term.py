@@ -5,16 +5,9 @@ import os
 import readline
 import re
 import subprocess
+from cmds import help,modules
 
 interance="("+Fore.RED+"lpi"+Fore.WHITE+") > "
-
-def reading(file):
-   with open(file) as f:
-    lines = f.read()
-    print(lines)
-
-def help():
-   reading("notes/help.txt")
 
 def mchecker(md):
    print("["+Fore.GREEN+"+"+Fore.WHITE+"] Module: " + md)
@@ -27,9 +20,6 @@ def nf(st,shit):
    else:
      stuff1="["+Fore.RED+"-"+Fore.WHITE+"] no module named "+Fore.YELLOW+shit+Fore.WHITE
      print(stuff1)
-
-def modules():
-   reading("notes/modules.txt")
 
 def chs():
    choose=input(interance)
