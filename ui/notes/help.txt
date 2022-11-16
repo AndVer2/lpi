@@ -6,12 +6,11 @@ use <module>: to use module
 back: to return back or exit (in case no module choosed)
 
 ----modules info----
-set port: to set port
-set host: to set host
-set username: to set username
-set password: to set password
+set "parameter": to set needed parameter
+show stuff: to show a table of module
 run: to run module
-set mac: to set mac adresse
+ecmd: to enable cmdline
+dcmd: to disable cmdline
 
 ----extra info----
 (R): required

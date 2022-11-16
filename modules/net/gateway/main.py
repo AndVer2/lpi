@@ -1,13 +1,41 @@
 #!/usr/bin/python
 
+from colorama import Fore
+import readline
 import sys
-
 sys.path.append( '../../../ui' )
-import cmds
+from cmds import back, help, version
+from run import run
 
-inpu = input("(lpi/gateway) >")
+interance="("+Fore.RED+"net/gateway"+Fore.WHITE+") > "
 
-if inpu == "back":
-  cmds.back(inpu)
-else:
-  print("shit")
+def nf(shit):
+   stuff="["+Fore.YELLOW+"!"+Fore.WHITE+"] "+Fore.YELLOW+shit+Fore.WHITE+" not found"
+   print(stuff)
+
+def chs():
+   choose=input(interance)
+   if bool(choose)==False:
+      chs()
+   else:
+      if choose.strip()=="exit":
+         exit()
+      elif choose.strip()=="back":
+         back(choose)
+      elif choose.strip()=="help":
+         help("../../../ui/")
+         chs()
+      elif choose.strip()=="clear":
+         os.system("clear")
+         chs()
+      elif choose.strip()=="run":
+         run()
+         chs()
+      elif choose.strip()=="version":
+         version("1")
+         chs()
+      else:
+         nf(choose)
+         chs()
+if __name__ == "__main__":
+   chs()

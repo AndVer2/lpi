@@ -1,17 +1,21 @@
 #!/bin/python
 
 import subprocess
+from colorama import Fore
 
 def reading(file):
    with open(file) as f:
     lines = f.read()
     print(lines)
 
-def help():
-   reading("notes/help.txt")
+def help(pth):
+   reading(pth+"notes/help.txt")
 
 def modules():
-   reading("notes/modules.txt")
+   reading(pth+"notes/modules.txt")
+
+def version(v):
+   print("v: " + Fore.BLUE + v + Fore.WHITE)
 
 def back(plc):
    if plc == "term":

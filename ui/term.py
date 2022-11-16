@@ -10,7 +10,7 @@ from cmds import help,modules
 interance="("+Fore.RED+"lpi"+Fore.WHITE+") > "
 
 def mchecker(md):
-   print("["+Fore.GREEN+"+"+Fore.WHITE+"] Module: " + md)
+   print("["+Fore.BLUE+"*"+Fore.WHITE+"] Module: " + md)
    subprocess.call(["python", "main.py"], cwd="../modules/"+md)
 
 def nf(st,shit):
@@ -18,7 +18,7 @@ def nf(st,shit):
      stuff="["+Fore.YELLOW+"!"+Fore.WHITE+"] "+Fore.YELLOW+shit+Fore.WHITE+" not found"
      print(stuff)
    else:
-     stuff1="["+Fore.RED+"-"+Fore.WHITE+"] no module named "+Fore.YELLOW+shit+Fore.WHITE
+     stuff1="["+Fore.YELLOW+"!"+Fore.WHITE+"] no module named "+Fore.YELLOW+shit+Fore.WHITE
      print(stuff1)
 
 def chs():
@@ -29,10 +29,10 @@ def chs():
       if choose.strip()=="exit" or choose.strip()=="back":
          exit()
       elif choose.strip()=="help":
-         help()
+         help("")
          chs()
       elif choose.strip()=="modules":
-         modules()
+         modules("")
          chs()
       elif choose.strip()=="clear":
          os.system("clear")
