@@ -12,6 +12,7 @@ interance="("+Fore.RED+"net/gateway"+Fore.WHITE+") > "
 param=[""]
 value=[""]
 state=[""]
+help=[""]
 
 def nf(shit):
    stuff="["+Fore.YELLOW+"!"+Fore.WHITE+"] "+Fore.YELLOW+shit+Fore.WHITE+" not found"
@@ -39,7 +40,7 @@ def chs():
          version("1")
          chs()
       elif choose.strip()=="show stuff":
-         table(param,value,state)
+         table(param,value,state,help)
          chs()
       else:
          nf(choose)

@@ -4,14 +4,14 @@ from colorama import Fore
 import readline
 import sys
 sys.path.append( '../../../ui' )
-from cmds import back, help, version, table
-from run import run
+from cmds import back, help, version, table, setter, ccmd
 import os
 
 interance="("+Fore.RED+"net/exrouter"+Fore.WHITE+") > "
-param=[""]
-value=[""]
-state=[""]
+param=["gateway", "user", "pass"]
+value=["", "admin", "admin", "yes"]
+state=["Required", "Required", "Required"]
+help=["the gateway of router", "default: admin", "default: password"]
 
 def nf(shit):
    stuff="["+Fore.YELLOW+"!"+Fore.WHITE+"] "+Fore.YELLOW+shit+Fore.WHITE+" not found"
@@ -38,7 +38,20 @@ def chs():
          version("1")
          chs()
       elif choose.strip()=="show stuff":
-         table(param,value,state)
+         table(param,value,state,help)
+         chs()
+      elif "set" in choose.strip():
+         hi=setter(choose.strip())
+         if hi=="shit" or hi is None:
+           a=""
+         else:
+           for i in range(0,len(param)):
+              if param[i] in hi[0][0] and len(hi[0][0]) == len(param[i]):
+                value[i] = hi[0][1]
+                print("["+ Fore.GREEN + "+" + Fore.WHITE + "] set " + hi[0][0] + " --> " + value[i])
+                break
+              else:
+                a=""
          chs()
       else:
          nf(choose)

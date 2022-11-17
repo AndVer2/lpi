@@ -26,7 +26,7 @@ def back(plc):
      subprocess.call(["python", "term.py"], cwd="../../../ui")
 
 def ccmd():
-   return ["gateway","port","cmd"]
+   return ["gateway","port","cmd", "port", "user", "pass"]
 
 def setter(cmd):
    common=ccmd()
@@ -42,10 +42,10 @@ def setter(cmd):
       else:
         if i==len(common) and cmd3.strip() != common[i] and len(common[i]) == len(cmd3.strip()):
           print("is not a legal paramter")
-def table(param,value,state):
+def table(param,value,state,help):
    data=[]
    for i in range(0,len(param)):
-      data.append([param[i],value[i],state[i]])
-   col_names = ["Parameter", "Value", "State"]
+      data.append([param[i],value[i],state[i],help[i]])
+   col_names = ["Parameter", "Value", "State", "Info"]
    print(tabulate(data, headers=col_names))
    
