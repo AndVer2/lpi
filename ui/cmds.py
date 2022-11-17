@@ -13,7 +13,7 @@ def reading(file):
 def help(pth):
    reading(pth+"notes/help.txt")
 
-def modules():
+def modules(pth):
    reading(pth+"notes/modules.txt")
 
 def version(v):
