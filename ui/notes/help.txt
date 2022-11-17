@@ -9,11 +9,3 @@ back: to return back or exit (in case no module choosed)
 set "parameter": to set needed parameter
 show stuff: to show a table of module
 run: to run module
-ecmd: to enable cmdline
-dcmd: to disable cmdline
-
-----extra info----
-(R): required
-(O): optional
-(Re): recommanded
-(In): instable

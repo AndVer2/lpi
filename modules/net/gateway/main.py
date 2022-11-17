@@ -4,10 +4,14 @@ from colorama import Fore
 import readline
 import sys
 sys.path.append( '../../../ui' )
-from cmds import back, help, version
+from cmds import back, help, version, table
 from run import run
+import os
 
 interance="("+Fore.RED+"net/gateway"+Fore.WHITE+") > "
+param=[""]
+value=[""]
+state=[""]
 
 def nf(shit):
    stuff="["+Fore.YELLOW+"!"+Fore.WHITE+"] "+Fore.YELLOW+shit+Fore.WHITE+" not found"
@@ -33,6 +37,9 @@ def chs():
          chs()
       elif choose.strip()=="version":
          version("1")
+         chs()
+      elif choose.strip()=="show stuff":
+         table(param,value,state)
          chs()
       else:
          nf(choose)
