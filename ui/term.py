@@ -48,10 +48,7 @@ def chs():
              found=True
              break
            else:
-             if i==len(arr) and module != arr[i]:
-               found=False
-             else:
-               found=False
+             found=False
          if found is True:
            mchecker(module)
          else:

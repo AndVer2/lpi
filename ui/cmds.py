@@ -39,9 +39,8 @@ def setter(cmd):
         arr.append([cmd2.strip(),cmd3.strip()])
         return arr
         break
-      else:
-        if i==len(common) and cmd3.strip() != common[i] and len(common[i]) == len(cmd3.strip()):
-          print("is not a legal paramter")
+      elif i==len(common)-1 and cmd2.strip() != common[i] and len(common[i]) == len(cmd2.strip()):
+          print("["+Fore.YELLOW+"!"+Fore.WHITE+"] "+cmd.strip()[4:len(cmd)]+" is not a legal paramter")
 def table(param,value,state,help):
    data=[]
    for i in range(0,len(param)):
