@@ -6,7 +6,7 @@ import sys
 sys.path.append( '../../../ui' )
 from cmds import back, help, version, table, setter, ccmd
 import os
-#from run import run
+from run import run
 
 interance="("+Fore.RED+"net/exrouter"+Fore.WHITE+") > "
 param=["gateway", "user", "pass"]
@@ -46,6 +46,7 @@ def chs():
                break
             elif ("Required" == state[i] and value[i] != "") and i==len(param)-1:
                print("["+Fore.BLUE+"*"+Fore.WHITE+"] run... ")
+               run(value)
          chs()
       elif "set" in choose.strip():
          hi=setter(choose.strip())
