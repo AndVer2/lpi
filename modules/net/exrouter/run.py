@@ -6,8 +6,10 @@ from colorama import Fore
 import sys
 sys.path.append( '../../../tools/ssh' ) #ssh
 sys.path.append( '../../../tools/ftp' ) #ftp
+sys.path.append( '../../../tools/cmd' ) #cmdline
 from ssh import connectssh
 from ftp import connectftp
+from interface import chs
 
 def run(value):
    get = Get()
@@ -34,11 +36,14 @@ def run(value):
        else:
          if zl[0]==True and zl[1]==True: #ftp and ssh
            time.sleep(1)
+           chs()
          elif zl[0]==True and zl[1]==False: #ftp
            time.sleep(1)
+           chs()
          elif zl[0]==False and zl[1]==True: #ssh
            time.sleep(1)
-         else: #no one impossible due to condition but just for reference
+           chs()
+         else: 
            time.sleep(1)
      elif yl=="wifi":
        time.sleep(0.8)
