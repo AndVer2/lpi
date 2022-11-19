@@ -19,14 +19,3 @@ def connectftp(gateway, user, passwd):
    except:
       print(f"[-] ---Failed connect to {gateway} over ftp")
       return False
-
-def getfiles():
-   ftp=connect()
-   files = ftp.dir()
-   print(files)
-
-def getfilesinotherfolder(path):
-   ftp=connect()
-   ftp.cwd(path)
-   files = ftp.dir()
-   print(files)

@@ -3,6 +3,11 @@
 import socket
 import time
 from colorama import Fore
+import sys
+sys.path.append( '../../../tools/ssh' ) #ssh
+sys.path.append( '../../../tools/ftp' ) #ftp
+from ssh import connectssh
+from ftp import connectftp
 
 def run(value):
    get = Get()
@@ -26,6 +31,15 @@ def run(value):
        if zl=="wifi":
          time.sleep(0.8)
          print("["+Fore.RED+"-"+Fore.WHITE+"] you are not connected to Wi-Fi")
+       else:
+         if zl[0]==True and zl[1]==True: #ftp and ssh
+           time.sleep(1)
+         elif zl[0]==True and zl[1]==False: #ftp
+           time.sleep(1)
+         elif zl[0]==False and zl[1]==True: #ssh
+           time.sleep(1)
+         else: #no one impossible due to condition but just for reference
+           time.sleep(1)
      elif yl=="wifi":
        time.sleep(0.8)
        print("["+Fore.RED+"-"+Fore.WHITE+"] you are not connected to Wi-Fi")
@@ -52,18 +66,27 @@ def checkdata(gateway, user, passwd):
    prts = Get()
    sports = prts.get_port()
    time.sleep(0.5)
+   c=[]
    print("["+Fore.BLUE+"*"+ Fore.WHITE +"] use data: [user:"+user+",passwd:"+passwd+"]")
    # check if its connected
    if bl=="127.0.0.1" or bl=="0.0.0.0" or bl is None:
       return "wifi"
    else:
+      c.clear()
       for i in range(0,len(sports)):
          if sports[i] == 21:   #ftp
-           connectftp(gateway, user, passwd)
+           ftp=connectftp(gateway, user, passwd)
+           if ftp is True:
+             c.append(True)
+           else:
+             c.append(False)
          elif sports[i] == 22: #ssh
-           connectssh(gateway, user, passwd)
-         elif sports[i] == 23: #telnet
-           connecttelenet(gateway, user, passwd)
+           ssh=connectssh(gateway, user, passwd)
+           if ssh is True:
+             c.append(True)
+           else:
+             c.append(False)
+      return c
 
 def checkgateway(gateway):
    bl=connected()
@@ -83,7 +106,7 @@ def checkgateway(gateway):
           return False
 
 def sport():
-   return [["ftp",21],["ssh",22],["telenet",23]]
+   return [["ftp",21],["ssh",22]]
 
 def checkactiveport(gateway):
    print("["+Fore.BLUE+"*"+ Fore.WHITE +"] check open ports ")
@@ -121,3 +144,5 @@ class Get:
         self._port.append(x)
     def clear_ports(self):
         self._port.clear()
+
+# to do: check gateway correctly and add cmdline
